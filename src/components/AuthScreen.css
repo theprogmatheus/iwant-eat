@@ -1,0 +1,58 @@
+.auth-screen {
+
+    background: url(https://images4.alphacoders.com/888/8.jpg);
+    background-size: cover;
+
+    min-width: 100vw;
+    min-height: 100vh;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+}
+
+.auth-screen-form {
+    width: 90%;
+    height: 60%;
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.auth-screen-form input{
+    width: 90%;
+    margin-bottom: 10px;
+    padding: 15px;    
+    box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1.2em;
+}
+.auth-screen-form #username{
+
+}
+.auth-screen-form #phone{
+    
+}
+.auth-screen-form #submit{
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #FFF;
+    background: rgb(255, 30, 30);
+    font-size: 1.3em;
+    margin: 0 auto 0 auto;
+    cursor: pointer;
+    margin-top: 10%;
+}
+
+.auth-screen-form #submit:active{
+    outline:none;
+    background: rgb(145, 0, 0);
+}
+
