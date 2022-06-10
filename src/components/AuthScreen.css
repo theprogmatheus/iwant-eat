@@ -1,9 +1,8 @@
 .auth-screen {
-
-    background: url(https://images4.alphacoders.com/888/8.jpg);
+    background: rgb(167, 0, 0);
     background-size: cover;
 
-    min-width: 100vw;
+    min-width: 100%;
     min-height: 100vh;
     width: 100%;
     height: 100%;
@@ -18,29 +17,32 @@
     width: 90%;
     height: 60%;
     margin: auto;
-
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
-.auth-screen-form input{
-    width: 90%;
+
+.auth-screen-brand {
+    padding: 15px;
+    margin-bottom: 15vh;
+    text-align: center;
+    color: #FFF;
+}
+
+.auth-screen-form input {
+    width: 100%;
     margin-bottom: 10px;
-    padding: 15px;    
+    padding: 15px;
     box-shadow: 1px 1px 3px 3px rgba(0, 0, 0, .2);
     border-radius: 5px;
     border: none;
     outline: none;
     font-size: 1.2em;
+    text-align: center;
 }
-.auth-screen-form #username{
 
-}
-.auth-screen-form #phone{
-    
-}
-.auth-screen-form #submit{
+.auth-screen-form #submit {
     text-transform: uppercase;
     font-weight: bold;
     color: #FFF;
@@ -51,8 +53,7 @@
     margin-top: 10%;
 }
 
-.auth-screen-form #submit:active{
-    outline:none;
+.auth-screen-form #submit:active {
+    outline: none;
     background: rgb(145, 0, 0);
 }
-
