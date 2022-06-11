@@ -3,7 +3,7 @@
     --menu-screen-fontcolor: #000;
 }
 
-.menu-screen {
+.menuScreen {
     background: var(--menu-screen-background);
     color: var(--menu-screen-fontcolor);
 }

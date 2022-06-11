@@ -1,5 +1,5 @@
 // import styles
-import './MenuScreen.css';
+import styles from './MenuScreen.module.css';
 
 // import components
 import MenuBrand from './MenuBrand';
@@ -7,12 +7,12 @@ import MenuBrand from './MenuBrand';
 const MenuScreen = () => {
 
     return (
-        <div className='screen menu-screen'>
-            
+        <div className={`screen ${styles.menuScreen}`}>            
             <MenuBrand />
 
             <div className="menu-screen-menu">
                 MenuScreen
+                Posso adicionar o que eu quiser aqui...
             </div>
         </div>
     )
