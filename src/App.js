@@ -2,7 +2,7 @@
 import './App.css';
 
 // import components
-import AuthScreen from './components/AuthScreen'
+import MenuScreen from './components/menu-screen/MenuScreen';
 
 
 
@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div>
-      <AuthScreen />
+      <MenuScreen />
     </div>
   );
 }

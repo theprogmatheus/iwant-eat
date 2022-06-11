@@ -1,0 +1,41 @@
+:root {
+
+    --menu-screen-background: rgb(255, 224, 161);
+    --menu-screen-fontcolor: #000;
+
+    --brand-size: 200px;
+
+    --brand-logo-width: 200px;
+    --brand-logo-height: 200px;
+    --brand-logo-background: rgb(231, 119, 0);
+
+}
+
+.menu-screen {
+    background: var(--menu-screen-background);
+    color: var(--menu-screen-fontcolor);
+}
+
+.menu-screen-brand {
+    width: 100vw;
+    height: var(--brand-size);
+    margin-bottom: calc((var(--brand-size) / 2.2));
+    box-shadow: 0px 0px 3px 3px rgba(0, 0, 0, .2);
+}
+
+.menu-screen-brand-background {
+    width: 100%;
+    height: 100%;    
+}
+
+.menu-screen-brand-logo {
+    background: var(--brand-logo-background);
+    border-radius: 100%;
+    padding: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, .2);
+    position: absolute;
+    width: var(--brand-logo-width);
+    height: var(--brand-logo-height);
+    left: calc(calc(100% - var(--brand-logo-width)) / 2);
+    top: calc(var(--brand-size) / 2.2);
+}
