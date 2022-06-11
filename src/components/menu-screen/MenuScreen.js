@@ -3,17 +3,20 @@ import styles from './MenuScreen.module.css';
 
 // import components
 import MenuBrand from './MenuBrand';
+import MenuItem from './MenuItem';
 
 const MenuScreen = () => {
 
     return (
-        <div className={`screen ${styles.menuScreen}`}>            
+        <div className={`screen ${styles.menuScreen}`}>
             <MenuBrand />
 
-            <div className="menu-screen-menu">
-                MenuScreen
-                Posso adicionar o que eu quiser aqui...
-            </div>
+            <MenuItem />
+            <MenuItem />
+            <MenuItem />
+            <MenuItem />
+            <MenuItem />
+
         </div>
     )
 }
