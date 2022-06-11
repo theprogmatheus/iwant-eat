@@ -1,26 +1,27 @@
 import styles from './MenuItem.module.css';
 
-const MenuItem = () => {
+const MenuItem = ({ image, title, details, price, oldPrice }) => {
     return (
-        <div className={styles.menuItem}>
-
+        <div className={styles.menuItem}>            
             <div className={styles.menuItemLogoContainer}>
                 <img
                     className={styles.menuItemLogo}
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq2gpzXwMPctn6H-Akd-HjTzcCHxy9kd-TBw&usqp=CAU"
-                    alt="item-logo"
+                    src={image}
+                    alt={title}
                 />
             </div>
-
             <div className={styles.menuItemDescription}>
-                <p className={styles.menuItemDescriptionTitle}>Brocado</p>
-                <p className={styles.menuItemDescriptionDetails}>Pão, 2 Hambúrguer 90g, 2 Mussarela, Presunto, Bacon, Alface, Tomate, Molho tradicional.</p>
+                <p className={styles.menuItemDescriptionTitle}>{title}</p>
+                <p className={styles.menuItemDescriptionDetails}>{details}</p>
                 <div className={styles.menuItemDescriptionPrice}>
-                    <span className={styles.menuItemDescriptionPriceOld}>R$ 31,99</span>
-                    <span className={styles.menuItemDescriptionPriceNew}>R$ 24,00</span>
+                    {oldPrice && <span className={styles.menuItemDescriptionPriceOld}>
+                        R$ {oldPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>}
+                    <span className={oldPrice && styles.menuItemDescriptionPriceNew}>
+                        R$ {price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                    </span>
                 </div>
             </div>
-
         </div>
     )
 }
