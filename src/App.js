@@ -2,7 +2,7 @@
 import './App.css';
 
 // import components
-import MenuScreen from './components/menu-screen/MenuScreen';
+import MyRoutes from './MyRoutes';
 
 const items = [
   {
@@ -43,11 +43,7 @@ const items = [
 function App() {
 
 
-  return (
-    <>
-      <MenuScreen items={items} />
-    </>
-  );
+  return (<MyRoutes />);
 }
 
 export default App;

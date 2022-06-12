@@ -12,6 +12,7 @@ const MenuScreen = ({ items }) => {
             <MenuBrand />
 
             {
+                items &&
                 items.map((item, index) => (
                     <MenuItem
                         key={index}
