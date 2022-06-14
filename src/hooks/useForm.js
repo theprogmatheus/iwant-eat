@@ -16,10 +16,11 @@ const useForm = (form, filter) => {
     }
 
     // handles form submit
-    const handleSubmit = (event) => {
+    const handleSubmit = (event, handler = () => { }) => {
         event.preventDefault();
+        handler(formObject(filter));
     }
-    
+
     return {
         handleSubmit,
         formObject

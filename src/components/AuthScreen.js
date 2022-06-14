@@ -6,11 +6,11 @@ import logo from './../assets/img/logo.png'
 import { useRef } from 'react'
 import useForm from './../hooks/useForm'
 
-const AuthScreen = () => {
+const AuthScreen = ({ user, setUser }) => {
 
 
   const formElement = useRef(null);
-  const form = useForm(formElement, ["password"]);
+  const form = useForm(formElement, ["username", "phone"]);
 
   return (
 
@@ -19,7 +19,14 @@ const AuthScreen = () => {
       <form
         ref={formElement}
         className="auth-screen-form"
-        onSubmit={form.handleSubmit}
+        onSubmit={(e) => {
+          form.handleSubmit(e, (form) => {
+            setUser({
+              ...user,
+              ...form
+            })
+          })
+        }}
       >
 
         <div className="auth-screen-brand">
@@ -36,15 +43,16 @@ const AuthScreen = () => {
           id="username"
           name="username"
           type="text"
-          placeholder="Nome de usuário"
+          placeholder="Qual é seu nome?"
           autoComplete='off'
+          required
         />
 
         <input
-          id="password"
-          name="password"
-          type="password"
-          placeholder="Senha"
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="Qual seu contato?"
           autoComplete="off"
         />
 
