@@ -5,11 +5,11 @@ import styles from './MenuScreen.module.css';
 import MenuBrand from './MenuBrand';
 import MenuItem from './MenuItem';
 
-const MenuScreen = ({ items }) => {
+const MenuScreen = ({ logout, items }) => {
 
     return (
         <div className={`screen ${styles.menuScreen}`}>
-            <MenuBrand />
+            <MenuBrand logout={logout} />
 
             {
                 items &&
