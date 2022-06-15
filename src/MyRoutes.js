@@ -12,11 +12,7 @@ const MyRoutes = ({ user, setUser }) => {
         return (user && user.username)
     }
     const logout = () => {
-        setUser({
-            ...user,
-            username: null,
-            phone: null
-        })
+        setUser({})
     }
 
     return (
