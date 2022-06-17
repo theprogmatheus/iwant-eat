@@ -5,7 +5,7 @@ import styles from './MenuScreen.module.css';
 import MenuBrand from './MenuBrand';
 import MenuItem from './MenuItem';
 
-const MenuScreen = ({ logout, items }) => {
+const MenuScreen = ({ user, logout, items }) => {
 
     return (
         <div className={`screen ${styles.menuScreen}`}>
@@ -21,6 +21,7 @@ const MenuScreen = ({ logout, items }) => {
                         details={item.details}
                         price={item.price}
                         oldPrice={item.oldPrice}
+                        user={user}
                     />
                 ))
             }

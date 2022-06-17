@@ -4,10 +4,11 @@ import styles from './MenuItem.module.css';
 // import hooks
 import { useState, useRef } from 'react';
 
-const MenuItem = ({ image, title, details, price, oldPrice }) => {
+const MenuItem = ({ user, image, title, details, price, oldPrice }) => {
 
     const [amount, setAmount] = useState(1);
     const detailsElement = useRef(null);
+    const [userData, setUserData] = user;
 
     const handleAmount = (value) => {
         if (value < 1)
@@ -16,6 +17,25 @@ const MenuItem = ({ image, title, details, price, oldPrice }) => {
             value = 99;
 
         setAmount(value)
+    }
+
+    const handleAddToCart = () => {
+
+
+        setUserData({
+            ...userData,
+            "cart": [
+                {
+                    "item": title,
+                    "amount": amount
+                }
+            ]
+        })
+
+
+        handleAmount(0)
+        console.log(userData)
+
     }
 
     const handleDetails = (event) => {
@@ -64,7 +84,7 @@ const MenuItem = ({ image, title, details, price, oldPrice }) => {
                     />
                     <button onClick={() => { setAmount((amount) => { handleAmount((amount + 1)) }) }}>+</button>
                     <span>R$ {(amount * price).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                    <button style={{ width: "100%" }}>Comprar</button>
+                    <button style={{ width: "100%" }} onClick={handleAddToCart}>Comprar</button>
                 </div>
             </div>
         </>
