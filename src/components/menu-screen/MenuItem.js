@@ -7,7 +7,7 @@ import { useState, useRef, useContext } from 'react';
 // import contexts
 import { UserContext } from './../../contexts/UserContext';
 
-const MenuItem = ({ image, title, details, price, oldPrice }) => {
+const MenuItem = ({ item }) => {
 
     const [amount, setAmount] = useState(1);
     const detailsElement = useRef(null);
@@ -24,24 +24,17 @@ const MenuItem = ({ image, title, details, price, oldPrice }) => {
 
     const handleAddToCart = () => {
 
+        const itemToAdd = { item, amount };
 
         setUser({
             ...user,
-            "cart": [
-                {
-                    "item": title,
-                    "amount": amount
-                }
-            ]
+            "cart": user.cart ? [...user.cart, itemToAdd] : [itemToAdd]
         })
 
-
-        handleAmount(0)
-        console.log(user)
-
+        handleAmount(1)
     }
 
-    const handleDetails = (event) => {
+    const handleDetails = () => {
         if (detailsElement.current.style.maxHeight === '')
             detailsElement.current.style.maxHeight = '100%'
         else
@@ -54,19 +47,19 @@ const MenuItem = ({ image, title, details, price, oldPrice }) => {
                 <div className={styles.menuItemLogoContainer}>
                     <img
                         className={styles.menuItemLogo}
-                        src={image}
-                        alt={title}
+                        src={item.image}
+                        alt={item.title}
                     />
                 </div>
                 <div className={styles.menuItemDescription}>
-                    <p className={styles.menuItemDescriptionTitle}>{title}</p>
-                    <p className={styles.menuItemDescriptionDetails}>{details}</p>
+                    <p className={styles.menuItemDescriptionTitle}>#{item.id} {item.title}</p>
+                    <p className={styles.menuItemDescriptionDetails}>{item.details}</p>
                     <div className={styles.menuItemDescriptionPrice}>
-                        {oldPrice && <span className={styles.menuItemDescriptionPriceOld}>
-                            R$ {oldPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                        {item.oldPrice && <span className={styles.menuItemDescriptionPriceOld}>
+                            R$ {item.oldPrice.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                         </span>}
-                        <span className={oldPrice && styles.menuItemDescriptionPriceNew}>
-                            R$ {price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
+                        <span className={item.oldPrice && styles.menuItemDescriptionPriceNew}>
+                            R$ {item.price.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                         </span>
                     </div>
                 </div>
@@ -86,7 +79,7 @@ const MenuItem = ({ image, title, details, price, oldPrice }) => {
                         onChange={(e) => { }}
                     />
                     <button onClick={() => { setAmount((amount) => { handleAmount((amount + 1)) }) }}>+</button>
-                    <span>R$ {(amount * price).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                    <span>R$ {(amount * item.price).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                     <button style={{ width: "100%" }} onClick={handleAddToCart}>Comprar</button>
                 </div>
             </div>

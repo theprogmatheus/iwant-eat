@@ -16,12 +16,7 @@ const MenuScreen = ({ user, logout, items }) => {
                 items.map((item, index) => (
                     <MenuItem
                         key={index}
-                        image={item.image}
-                        title={item.title}
-                        details={item.details}
-                        price={item.price}
-                        oldPrice={item.oldPrice}
-                        user={user}
+                        item={item}
                     />
                 ))
             }
