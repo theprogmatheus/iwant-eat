@@ -2,13 +2,16 @@
 import styles from './MenuItem.module.css';
 
 // import hooks
-import { useState, useRef } from 'react';
+import { useState, useRef, useContext } from 'react';
 
-const MenuItem = ({ user, image, title, details, price, oldPrice }) => {
+// import contexts
+import { UserContext } from './../../contexts/UserContext';
+
+const MenuItem = ({ image, title, details, price, oldPrice }) => {
 
     const [amount, setAmount] = useState(1);
     const detailsElement = useRef(null);
-    const [userData, setUserData] = user;
+    const { user, setUser } = useContext(UserContext);
 
     const handleAmount = (value) => {
         if (value < 1)
@@ -22,8 +25,8 @@ const MenuItem = ({ user, image, title, details, price, oldPrice }) => {
     const handleAddToCart = () => {
 
 
-        setUserData({
-            ...userData,
+        setUser({
+            ...user,
             "cart": [
                 {
                     "item": title,
@@ -34,7 +37,7 @@ const MenuItem = ({ user, image, title, details, price, oldPrice }) => {
 
 
         handleAmount(0)
-        console.log(userData)
+        console.log(user)
 
     }
 

@@ -29,7 +29,7 @@ const MyRoutes = ({ user, setUser }) => {
                 <Route path="/auth" element={logged() ? <Navigate replace to="/menu" /> : <AuthScreen user={user} setUser={setUser} />} />
             </Routes>
         </BrowserRouter>
-    )
+    ) 
 }
 
 export default MyRoutes
