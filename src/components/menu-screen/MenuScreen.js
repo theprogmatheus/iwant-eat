@@ -6,7 +6,13 @@ import MenuBrand from './MenuBrand';
 import MenuItem from './MenuItem';
 import MenuFooter from './MenuFooter';
 
-const MenuScreen = ({ user, logout, items }) => {
+// import hooks
+import { useState } from 'react';
+
+const MenuScreen = ({ logout, items }) => {
+
+    const [activeItem, setActiveItem] = useState(null);
+
 
     return (
         <div className={`screen ${styles.menuScreen}`}>
@@ -18,6 +24,8 @@ const MenuScreen = ({ user, logout, items }) => {
                     <MenuItem
                         key={index}
                         item={item}
+                        activeItem={activeItem}
+                        setActiveItem={setActiveItem}
                     />
                 ))
             }

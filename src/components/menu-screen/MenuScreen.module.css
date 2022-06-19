@@ -6,4 +6,5 @@
 .menuScreen {
     background: var(--menu-screen-background);
     color: var(--menu-screen-fontcolor);
+    padding-bottom: 100px;
 }

@@ -2,16 +2,15 @@
 import styles from './MenuItem.module.css';
 
 // import hooks
-import { useState, useRef, useContext } from 'react';
+import { useState, useContext } from 'react';
 
 // import contexts
 import { UserContext } from './../../contexts/UserContext';
 
-const MenuItem = ({ item }) => {
+const MenuItem = ({ item, activeItem, setActiveItem }) => {
 
     const [amount, setAmount] = useState(1);
     const [note, setNote] = useState();
-    const detailsElement = useRef(null);
     const { user, setUser } = useContext(UserContext);
 
     const handleAmount = (value) => {
@@ -32,14 +31,21 @@ const MenuItem = ({ item }) => {
             "cart": user.cart ? [...user.cart, itemToAdd] : [itemToAdd]
         })
 
-        handleAmount(1)
+        if ((!user.cart) || user.cart.length <= 0) {
+            window.location.href = "/cart";
+        }
+        else {
+            handleAmount(1)
+            setActiveItem(null)
+        }
     }
 
     const handleDetails = () => {
-        if (detailsElement.current.style.maxHeight === '')
-            detailsElement.current.style.maxHeight = '100%'
+
+        if (activeItem === item)
+            setActiveItem(null)
         else
-            detailsElement.current.style.maxHeight = ''
+            setActiveItem(item)
     }
 
     return (
@@ -66,7 +72,7 @@ const MenuItem = ({ item }) => {
                 </div>
             </div>
 
-            <div className={styles.itemDetails} ref={detailsElement}>
+            <div className={styles.itemDetails} style={{ maxHeight: (activeItem === item) && '100%' }}>
                 <div className={styles.itemDetailsContent}>
                     <p>
                         Defina a quantidade que você vai querer, escreva alguma observação, se houver, depois clique em COMPRAR
