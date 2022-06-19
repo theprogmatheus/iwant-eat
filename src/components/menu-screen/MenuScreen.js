@@ -4,6 +4,7 @@ import styles from './MenuScreen.module.css';
 // import components
 import MenuBrand from './MenuBrand';
 import MenuItem from './MenuItem';
+import MenuFooter from './MenuFooter';
 
 const MenuScreen = ({ user, logout, items }) => {
 
@@ -20,6 +21,8 @@ const MenuScreen = ({ user, logout, items }) => {
                     />
                 ))
             }
+
+            <MenuFooter />
 
         </div>
     )
