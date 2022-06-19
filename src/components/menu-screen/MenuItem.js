@@ -10,6 +10,7 @@ import { UserContext } from './../../contexts/UserContext';
 const MenuItem = ({ item }) => {
 
     const [amount, setAmount] = useState(1);
+    const [note, setNote] = useState();
     const detailsElement = useRef(null);
     const { user, setUser } = useContext(UserContext);
 
@@ -24,7 +25,7 @@ const MenuItem = ({ item }) => {
 
     const handleAddToCart = () => {
 
-        const itemToAdd = { item, amount };
+        const itemToAdd = { item, amount, note };
 
         setUser({
             ...user,
@@ -68,8 +69,16 @@ const MenuItem = ({ item }) => {
             <div className={styles.itemDetails} ref={detailsElement}>
                 <div className={styles.itemDetailsContent}>
                     <p>
-                        Defina a quantidade que você vai querer, depois clique em COMPRAR
+                        Defina a quantidade que você vai querer, escreva alguma observação, se houver, depois clique em COMPRAR
                     </p>
+                    <label>
+                        <span>Observação</span>
+                        <textarea
+                            placeholder="EX: (Retirar molho, deixar na portaria)"
+                            value={note}
+                            onChange={(e) => { setNote(e.target.value) }}
+                        />
+                    </label>
                 </div>
                 <div className={styles.itemDetailsSelectorBar}>
                     <button onClick={() => { setAmount((amount) => { handleAmount((amount - 1)) }) }}>-</button>
@@ -80,7 +89,7 @@ const MenuItem = ({ item }) => {
                     />
                     <button onClick={() => { setAmount((amount) => { handleAmount((amount + 1)) }) }}>+</button>
                     <span>R$ {(amount * item.price).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
-                    <button style={{ width: "100%" }} onClick={handleAddToCart}>Comprar</button>
+                    <button style={{ width: "100%" }} onClick={handleAddToCart}>Adicionar</button>
                 </div>
             </div>
         </>

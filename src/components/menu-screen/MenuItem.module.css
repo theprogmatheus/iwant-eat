@@ -88,7 +88,24 @@
 
 .itemDetailsContent {
     padding: 20px;
+}
 
+.itemDetailsContent label {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.itemDetailsContent textarea {
+    width: 100%;
+    height: 100%;
+    min-height: 50px;
+    padding: 15px;
+    outline: none;
+    border: 1px solid gray;
+    resize: none;
+    margin-top: 5px;
 }
 
 .itemDetailsSelectorBar {
