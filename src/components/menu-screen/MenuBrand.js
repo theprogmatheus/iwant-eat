@@ -1,6 +1,7 @@
+// import styles
 import styles from './MenuBrand.module.css';
 
-
+// import logo
 import logo from './../../assets/img/logo.png';
 
 const MenuBrand = ({ logout }) => {

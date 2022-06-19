@@ -25,12 +25,16 @@ const MenuFooter = () => {
         return total.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     }
 
+    const handleSeeCart = () => {
+        window.location.href = "/cart";
+    }
+
     return (
         <div className={styles.footer}>
             <span>
                 R$ {handleTotal()}
             </span>
-            <button>
+            <button onClick={handleSeeCart}>
                 Ver carrinho {user.cart && `(${user.cart.length})`}
             </button>
         </div>

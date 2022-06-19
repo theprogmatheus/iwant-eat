@@ -1,8 +1,10 @@
 // import styles
 import './AuthScreen.css'
 
+// import logo
 import logo from './../assets/img/logo.png'
 
+// import hooks
 import { useRef } from 'react'
 import useForm from './../hooks/useForm'
 
